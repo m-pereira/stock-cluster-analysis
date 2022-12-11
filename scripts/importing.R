@@ -20,3 +20,19 @@ idiv_data <- yf_get(
   last_date = Sys.Date()
 )
 idiv_data %>% saveRDS(here::here("data","raw.RDS"))
+
+
+my_stocks <- c("BBAS3.SA","B3SA3.SA",
+               "FLRY3.SA","ITSA3.SA",
+               "ENBR3.SA","TAEE3.SA",
+               "KLBN4.SA","CAML3.SA",
+               "VIVT3.SA","SAPR3.SA")
+
+my_data <- yf_get(
+  my_stocks,
+  first_date = Sys.Date() - 360,
+  last_date = Sys.Date()
+)
+
+
+my_data  %>% saveRDS(here::here("data","raw.RDS"))
